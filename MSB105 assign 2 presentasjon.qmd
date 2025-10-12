@@ -1,11 +1,6 @@
 ---
-title: "Msb105 Assign 2"
-format: revealjs
-editor: visual
----
----
-title: "Mal presentasjon"
-author: "N N"
+title: " Hvilke sammenhenger har vi mellom inntekt, kjønn og evnenivå («afqt») på arbeidsplassen?"
+author: "Magnus og Harald"
 institute: "HVL"
 date: last-modified
 date-format: "dddd D MMM, YYYY"
@@ -146,8 +141,6 @@ Hvis tinytex ikke alt er installert:
 -   `Typst` ser ut til å håndtere norsk orddeling som default. Eksemplet
     er tilgjengelig i `Typst` versjon [her](nn_Typst.pdf).
 
-
 ```{r}
 modelr::heights
 ```
-
