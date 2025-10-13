@@ -35,7 +35,7 @@ editor_options:
 echo: true
 eval: true
 nocite: '@*'
-bibliography: Assignment_2
+bibliography: Assignment_2.bib
 ---
 
 ## Introduksjon
