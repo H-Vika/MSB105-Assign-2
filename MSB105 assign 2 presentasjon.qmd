@@ -35,11 +35,13 @@ editor_options:
 echo: true
 eval: true
 nocite: '@*'
+bibliography: Assignment_2
 ---
 
 ## Introduksjon
 
-EDA av variablene X, Y og Z fra datasettet `modelr::heights`
+hhhhhhhhhhhhhhhhhhhhh EDA av variablene X, Y og Z fra datasettet
+`modelr::heights`
 
 ## Litteraturgjennomgang
 
@@ -144,3 +146,4 @@ Hvis tinytex ikke alt er installert:
 ```{r}
 modelr::heights
 ```
+
