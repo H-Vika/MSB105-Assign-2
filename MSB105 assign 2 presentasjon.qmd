@@ -146,4 +146,3 @@ Hvis tinytex ikke alt er installert:
 ```{r}
 modelr::heights
 ```
-
