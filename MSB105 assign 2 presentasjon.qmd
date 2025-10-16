@@ -140,6 +140,7 @@ x = "Kjonn", y = "AFQT-score")
 ## Sammenhenger
 
 ```{r}
+echo = FALSE
 ggplot(data, aes(x = afqt, y = income, color = sex)) +
 geom_point(alpha = 0.4) +
 geom_smooth(method = "lm", se = FALSE) +
