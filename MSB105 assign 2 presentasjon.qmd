@@ -55,9 +55,16 @@ bibliography: Assignment_2.bib
 
 -   Hva er kjent fra tidligere studier?
 
+    Artikkelen @lin tar for seg hvordan kognitiv prestasjoner henger
+    sammen med arbeidsmarkedsutfall innen lønn, for personer i alderen
+    20-50 år. Artikkelen finner at det kognitiv presentasjon har en
+    positiv sammenheng med alle aldre, det er en differensiert
+    avkastning på kjønn, effekter på lønn og timer arbeidstid. Andre
+    studier som
+
 -   Hvordan henger kognitive evner ofte sammen med inntekt?
 
-    I følge artikkelen
+    I følge artikkelen @lin har
 
 -   Er det kjønnsforskjeller i inntekt og evnenivå?
 
