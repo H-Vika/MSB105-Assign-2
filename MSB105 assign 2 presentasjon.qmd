@@ -43,12 +43,46 @@ bibliography: Assignment_2.bib
 hhhhhhhhhhhhhhhhhhhhh EDA av variablene X, Y og Z fra datasettet
 `modelr::heights`
 
+```{r}
+# create a bib file for the R packages 
+# used in this document
+# Note! Needs to do a touch(eda.bib) in terminal before first run
+# else stops when bibliography: "eda.bib" not found in YAML
+packs <- c("tidyverse", "nycflights13", "gridExtra",
+           "modelr", "grid", "ggplotify", "vtable", "flextable")
+knitr::write_bib(
+  packs,
+  file = "eda.bib"
+  )
+rm(packs)
+```
+
+```{r}
+modelr::heights
+```
+
 ## Litteraturgjennomgang
 
-Hva er kjent om sammenhengen mellom disse variablene (fra X, Y og Z)
+#Hva er kjent om sammenhengen mellom disse variablene (fra X, Y og Z)
 andre studier.
 
 @knuth1984 er en sitering.
+
+```{r}
+#| eval: false
+#| ft_max_row: 15
+# Default for ft_max_row is 10
+# so just first 10 lines will
+# be printed
+use_df_printer()
+heights %>% 
+  select(-marital) %>% 
+  vtable::st(
+    group = 'sex',
+    group.long = TRUE,
+    out = "return"
+    )
+```
 
 ## Konklusjon
 
@@ -142,7 +176,3 @@ Hvis tinytex ikke alt er installert:
 -   Virker alt som det skal bør dere ende opp med [dette](nn_Tex.pdf).
 -   `Typst` ser ut til å håndtere norsk orddeling som default. Eksemplet
     er tilgjengelig i `Typst` versjon [her](nn_Typst.pdf).
-
-```{r}
-modelr::heights
-```

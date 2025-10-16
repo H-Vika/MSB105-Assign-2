@@ -227,16 +227,61 @@ Magnus og Harald
     </div>
 </div>
 
-  <p class="date">Monday 13 Oct, 2025</p>
+  <p class="date">Thursday 16 Oct, 2025</p>
 </section>
 <section id="introduksjon" class="slide level2" data-number="1">
 <h2><span class="header-section-number">1</span> Introduksjon</h2>
 <p>hhhhhhhhhhhhhhhhhhhhh EDA av variablene X, Y og Z fra datasettet <code>modelr::heights</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># create a bib file for the R packages </span></span>
+<span id="cb1-2"><a href=""></a><span class="co"># used in this document</span></span>
+<span id="cb1-3"><a href=""></a><span class="co"># Note! Needs to do a touch(eda.bib) in terminal before first run</span></span>
+<span id="cb1-4"><a href=""></a><span class="co"># else stops when bibliography: "eda.bib" not found in YAML</span></span>
+<span id="cb1-5"><a href=""></a>packs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"nycflights13"</span>, <span class="st">"gridExtra"</span>,</span>
+<span id="cb1-6"><a href=""></a>           <span class="st">"modelr"</span>, <span class="st">"grid"</span>, <span class="st">"ggplotify"</span>, <span class="st">"vtable"</span>, <span class="st">"flextable"</span>)</span>
+<span id="cb1-7"><a href=""></a>knitr<span class="sc">::</span><span class="fu">write_bib</span>(</span>
+<span id="cb1-8"><a href=""></a>  packs,</span>
+<span id="cb1-9"><a href=""></a>  <span class="at">file =</span> <span class="st">"eda.bib"</span></span>
+<span id="cb1-10"><a href=""></a>  )</span>
+<span id="cb1-11"><a href=""></a><span class="fu">rm</span>(packs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a>modelr<span class="sc">::</span>heights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7,006 × 8
+   income height weight   age marital  sex    education  afqt
+    &lt;int&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;    &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;
+ 1  19000     60    155    53 married  female        13  6.84
+ 2  35000     70    156    51 married  female        10 49.4 
+ 3 105000     65    195    52 married  male          16 99.4 
+ 4  40000     63    197    54 married  female        14 44.0 
+ 5  75000     66    190    49 married  male          14 59.7 
+ 6 102000     68    200    49 divorced female        18 98.8 
+ 7      0     74    225    48 married  male          16 82.3 
+ 8  70000     64    160    54 divorced female        12 50.3 
+ 9  60000     69    162    55 divorced male          12 89.7 
+10 150000     69    194    54 divorced male          13 96.0 
+# ℹ 6,996 more rows</code></pre>
+</div>
+</div>
 </section>
 <section id="litteraturgjennomgang" class="slide level2" data-number="2">
 <h2><span class="header-section-number">2</span> Litteraturgjennomgang</h2>
-<p>Hva er kjent om sammenhengen mellom disse variablene (fra X, Y og Z) andre studier.</p>
+<p>#Hva er kjent om sammenhengen mellom disse variablene (fra X, Y og Z) andre studier.</p>
 <p><span class="citation" data-cites="knuth1984">(<a href="#/referanser" role="doc-biblioref" onclick=""><strong>knuth1984?</strong></a>)</span> er en sitering.</p>
+<div class="cell" data-ft_max_row="15">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Default for ft_max_row is 10</span></span>
+<span id="cb4-2"><a href=""></a><span class="co"># so just first 10 lines will</span></span>
+<span id="cb4-3"><a href=""></a><span class="co"># be printed</span></span>
+<span id="cb4-4"><a href=""></a><span class="fu">use_df_printer</span>()</span>
+<span id="cb4-5"><a href=""></a>heights <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href=""></a>  <span class="fu">select</span>(<span class="sc">-</span>marital) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-7"><a href=""></a>  vtable<span class="sc">::</span><span class="fu">st</span>(</span>
+<span id="cb4-8"><a href=""></a>    <span class="at">group =</span> <span class="st">'sex'</span>,</span>
+<span id="cb4-9"><a href=""></a>    <span class="at">group.long =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-10"><a href=""></a>    <span class="at">out =</span> <span class="st">"return"</span></span>
+<span id="cb4-11"><a href=""></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="konklusjon" class="slide level2" data-number="3">
 <h2><span class="header-section-number">3</span> Konklusjon</h2>
@@ -329,25 +374,6 @@ Magnus og Harald
 <li>Virker alt som det skal bør dere ende opp med <a href="nn_Tex.pdf">dette</a>.</li>
 <li><code>Typst</code> ser ut til å håndtere norsk orddeling som default. Eksemplet er tilgjengelig i <code>Typst</code> versjon <a href="nn_Typst.pdf">her</a>.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>modelr<span class="sc">::</span>heights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7,006 × 8
-   income height weight   age marital  sex    education  afqt
-    &lt;int&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;    &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;
- 1  19000     60    155    53 married  female        13  6.84
- 2  35000     70    156    51 married  female        10 49.4 
- 3 105000     65    195    52 married  male          16 99.4 
- 4  40000     63    197    54 married  female        14 44.0 
- 5  75000     66    190    49 married  male          14 59.7 
- 6 102000     68    200    49 divorced female        18 98.8 
- 7      0     74    225    48 married  male          16 82.3 
- 8  70000     64    160    54 divorced female        12 50.3 
- 9  60000     69    162    55 divorced male          12 89.7 
-10 150000     69    194    54 divorced male          13 96.0 
-# ℹ 6,996 more rows</code></pre>
-</div>
-</div>
 
 </section>
     </div>
