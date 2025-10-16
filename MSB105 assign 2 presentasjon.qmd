@@ -52,8 +52,13 @@ bibliography: Assignment_2.bib
 ## Litteraturgjennomgang
 
 -   Hva er kjent fra tidligere studier?
+
 -   Hvordan henger kognitive evner ofte sammen med inntekt?
+
+    I følge artikkelen
+
 -   Er det kjønnsforskjeller i inntekt og evnenivå?
+
 -   (Sett inn noen korte referanser med APA7-format her.)
 
 ------------------------------------------------------------------------
