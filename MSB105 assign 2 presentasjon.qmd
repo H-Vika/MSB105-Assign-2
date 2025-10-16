@@ -40,109 +40,151 @@ bibliography: Assignment_2.bib
 
 ## Introduksjon
 
-hhhhhhhhhhhhhhhhhhhhh EDA av variablene X, Y og Z fra datasettet
-`modelr::heights`
+-   Kort om datasettet (`modelr::heights` eller Judge-datasettet)
+-   Variabler:
+    -   `income`: Inntekt
+    -   `gender`: Kjønn
+    -   `afqt`: Evnenivå (testscore)
+-   Formål: Undersøke sammenhenger mellom inntekt, kjønn og evnenivå
+
+------------------------------------------------------------------------
 
 ## Litteraturgjennomgang
 
-Hva er kjent om sammenhengen mellom disse variablene (fra X, Y og Z)
-andre studier.
+-   Hva er kjent fra tidligere studier?
+-   Hvordan henger kognitive evner ofte sammen med inntekt?
+-   Er det kjønnsforskjeller i inntekt og evnenivå?
+-   (Sett inn noen korte referanser med APA7-format her.)
 
-@knuth1984 er en sitering.
+------------------------------------------------------------------------
 
-## Konklusjon
-
-## Referanser
-
-::: {#refs}
-:::
-
-## Appendiks
-
-Litt tips om hvordan presentasjoner skrives som Quarto dokumenter.
-
-Ovenfor ser en hvordan man kan styre hvor referansene havner. Her vil vi
-ha dem før appendikset.
-
-Overskrift på nivå to (`##`) gir ny slide. På nivå en (`#`) gir ny
-tittle slide.
-
-## «incremental lists»
-
-Med følgende konstruksjon kan en få «incremental lists»:
-
-::: incremental
--   Første punkt
-    -   Første underpunkt
-    -   Andre underpunkt
--   Andre punkt
--   Tredje punkt
-:::
-
-## «incremental definition list»
-
-::: incremental
-
-Definisjon en
-
-:   Slik er definisjon 1.
-
-Definisjon to
-
-:   Slik er definisjon 2.
-:::
-
-## To kolonner
-
-::::::: columns
-:::: {.column width="50%"}
-::: incremental
--   Første punkt
-    -   Første underpunkt
-    -   Andre underpunkt
--   Andre punkt
--   Tredje punkt
-:::
-::::
-
-:::: {.column width="50%"}
-::: incremental
-
-Definisjon en
-
-:   Slik er definisjon 1.
-
-Definisjon to
-
-:   Slik er definisjon 2.
-:::
-::::
-:::::::
-
-## Få støtte for norsk i `pdf` format
-
-Ta en titt på [denne siden](https://yihui.org/tinytex/).
-
-Hvis tinytex ikke alt er installert:
-
--   installer r-pakken tinytex
--   gi så kommandoen `tinytex::install_tinytex()` i R Console
--   for å få norsk ordeling gi kommandoen
-    `tinytex::tlmgr_install("hyphen-norwegian")`
--   Dette vil laste inn støtte for norsk ordeling og bygge en latex
-    format fil med innebygd støtte for norsk ordeling.
--   Her er et [eksempeldokument](nn.qmd){download="nn.qmd"} som dere kan
-    kjøre.
-    -   Klikker dere på `eksempeldokument` blir filen `nn.qmd` lastet
-        ned til nedlastingsmappen.
-    -   Denne kan så åpnes i RStudio og kjøres.
-
-## Få støtte for norsk i `pdf` format
-
--   Virker alt som det skal bør dere ende opp med [dette](nn_Tex.pdf).
--   `Typst` ser ut til å håndtere norsk orddeling som default. Eksemplet
-    er tilgjengelig i `Typst` versjon [her](nn_Typst.pdf).
+## Data grunnlag & klargjøring
 
 ```{r}
+library(dplyr)
+library(ggplot2)
+library(modelr)
+library(knitr)
+
+data <- modelr::heights
+
 modelr::heights
 ```
+
+------------------------------------------------------------------------
+
+## Beskrivende statistikk (tabell)
+
+```{r}
+data |>
+summarise(
+n = n(),
+mean_income = mean(income),
+sd_income = sd(income),
+median_income = median(income),
+mean_afqt = mean(afqt),
+sd_afqt = sd(afqt),
+median_afqt = median(afqt)
+) |>
+knitr::kable()
+```
+
+------------------------------------------------------------------------
+
+## Fordeling av variabler
+
+```{r}
+ggplot(data, aes(x = income)) +
+geom_histogram(binwidth = diff(range(data$income, na.rm=TRUE))/30, color = "white") +
+labs(title = "Fordeling av inntekt",
+x = "Inntekt",
+y = "Antall")
+
+ggplot(data, aes(x = afqt)) +
+geom_histogram(binwidth = diff(range(data$afqt, na.rm=TRUE))/30, color = "white") +
+labs(title = "Fordeling av AFQT",
+x = "AFQT-score",
+y = "Antall")
+
+
+```
+
+------------------------------------------------------------------------
+
+## Kjønnsforskjeller
+
+```{r}
+ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
+geom_boxplot(alpha = 0.8, show.legend = FALSE) +
+labs(title = "Inntekt fordelt pa kjonn",
+x = "Kjonn", y = "Inntekt")
+
+```
+
+```{r}
+ggplot(data, aes(x = sex, y = afqt, fill = sex)) +
+geom_violin(alpha = 0.6, trim = FALSE, show.legend = FALSE) +
+geom_boxplot(width = .15, outlier.shape = NA, alpha = 0.8, show.legend = FALSE) +
+labs(title = "AFQT fordelt pa kjonn",
+x = "Kjonn", y = "AFQT-score")
+
+```
+
+------------------------------------------------------------------------
+
+## Sammenhenger
+
+```{r}
+ggplot(data, aes(x = afqt, y = income, color = sex)) +
+geom_point(alpha = 0.4) +
+geom_smooth(method = "lm", se = FALSE) +
+labs(title = "Sammenheng mellom AFQT og inntekt",
+x = "AFQT-score", y = "Inntekt", color = "Kjonn")
+
+```
+
+------------------------------------------------------------------------
+
+## Korrelasjoner eller regresjonsmedell
+
+```{r}
+# Enkel korrelasjon mellom income og afqt
+
+cor_tbl <- data |>
+summarise(kor_income_afqt = cor(income, afqt))
+knitr::kable(cor_tbl)
+
+# Parvis spredningsplott (kan være "tungt" på store datasett)
+
+pairs(~ income + afqt, data = data)
+
+# regresjon
+mod1 <- lm(income ~ afqt + sex, data = data)
+broom::tidy(mod1, conf.int = TRUE) |>
+knitr::kable(digits = 3)
+
+```
+
+------------------------------------------------------------------------
+
+## diskusjon
+
+-   Hva viser figurene om:
+
+-   Fordelingene (skjevhet, outliers)?
+
+-   Kjønnsforskjeller i nivå?
+
+-   Styrken/retningen på sammenhengen AFQT–inntekt?
+
+-   
+
+    ## Stemmer funn med litteraturen? Mulige mekanismer? Begrensninger?
+
+## konklusjon
+
+-   Kort oppsummering av hovedfunn
+
+-   
+
+    ## Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)
