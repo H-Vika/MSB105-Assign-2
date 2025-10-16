@@ -123,8 +123,41 @@ y = "Antall")
 ```{r}
 ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
 geom_boxplot(alpha = 0.8, show.legend = FALSE) +
-labs(title = "Inntekt fordelt pa kjonn",
-x = "Kjonn", y = "Inntekt")
+labs(title = "Inntekt fordelt på kjønn",
+x = "Kjønn", y = "Inntekt")
+
+
+ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.1, outlier.shape = NA, alpha = 0.8) +
+  labs(title = "Inntektsfordeling etter kjønn",
+       x = "Kjønn", y = "Inntekt")
+
+ggplot(data = modelr::heights, aes(x = sex, y = income, color = sex)) +
+  geom_jitter(alpha = 0.4, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", shape = 23, size = 4, fill = "black") +
+  labs(title = "Inntekt per individ etter kjønn",
+       x = "Kjønn", y = "Inntekt")
+
+ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
+  stat_summary(fun = mean, geom = "bar", alpha = 0.7) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +
+  labs(title = "Gjennomsnittlig inntekt etter kjønn",
+       x = "Kjønn", y = "Gjennomsnittlig inntekt")
+
+
+library(ggridges)
+
+ggplot(data = modelr::heights, aes(x = income, y = sex, fill = sex)) +
+  geom_density_ridges(alpha = 0.7) +
+  labs(title = "Inntektsfordeling etter kjønn (tetthet)",
+       x = "Inntekt", y = "Kjønn")
+
+ggplot(data = modelr::heights, aes(x = income, fill = sex)) +
+  geom_histogram(binwidth = 10000, alpha = 0.7, color = "white") +
+  facet_wrap(~ sex) +
+  labs(title = "Fordeling av inntekt for menn og kvinner",
+       x = "Inntekt", y = "Antall")
 
 ```
 
