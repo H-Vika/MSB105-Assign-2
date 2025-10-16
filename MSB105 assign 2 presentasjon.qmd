@@ -38,6 +38,8 @@ nocite: '@*'
 bibliography: Assignment_2.bib
 ---
 
+[@lin] [@zotero-item-335]
+
 ## Introduksjon
 
 -   Kort om datasettet (`modelr::heights` eller Judge-datasettet)
