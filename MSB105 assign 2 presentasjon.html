@@ -227,7 +227,7 @@ Magnus og Harald
     </div>
 </div>
 
-  <p class="date">Thursday 16 Oct, 2025</p>
+  <p class="date">Friday 17 Oct, 2025</p>
 </section>
 <section class="slide level2">
 
@@ -339,46 +339,47 @@ Magnus og Harald
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>beskrivende_tabell <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href=""></a>  <span class="fu">summarise</span>(</span>
 <span id="cb4-3"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb4-4"><a href=""></a>    <span class="at">mean_income =</span> <span class="fu">mean</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-5"><a href=""></a>    <span class="at">sd_income =</span> <span class="fu">sd</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-6"><a href=""></a>    <span class="at">median_income_total =</span> <span class="fu">median</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-7"><a href=""></a>    <span class="at">mean_afqt =</span> <span class="fu">mean</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-8"><a href=""></a>    <span class="at">sd_afqt =</span> <span class="fu">sd</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-9"><a href=""></a>    <span class="at">median_afqt_total =</span> <span class="fu">median</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-10"><a href=""></a>    <span class="at">mean_income_menn =</span> <span class="fu">mean</span>(income[sex <span class="sc">==</span> <span class="st">"male"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-11"><a href=""></a>    <span class="at">mean_income_kvinner =</span> <span class="fu">mean</span>(income[sex <span class="sc">==</span> <span class="st">"female"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-4"><a href=""></a>    <span class="at">Gj.Snitt_Inntekt =</span> <span class="fu">mean</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-5"><a href=""></a>    <span class="at">Std.Avvik_Inntekt =</span> <span class="fu">sd</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-6"><a href=""></a>    <span class="at">Median_Inntekt =</span> <span class="fu">median</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-7"><a href=""></a>    <span class="at">Gj.Snitt_afqt =</span> <span class="fu">mean</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-8"><a href=""></a>    <span class="at">Std.Avvik_afqt =</span> <span class="fu">sd</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-9"><a href=""></a>    <span class="at">Median_afqt =</span> <span class="fu">median</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-10"><a href=""></a>    <span class="at">Gj.Snitt_Inntekt_Menn =</span> <span class="fu">mean</span>(income[sex <span class="sc">==</span> <span class="st">"male"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-11"><a href=""></a>    <span class="at">GJ.Snitt_Kvinner =</span> <span class="fu">mean</span>(income[sex <span class="sc">==</span> <span class="st">"female"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb4-12"><a href=""></a>  )</span>
 <span id="cb4-13"><a href=""></a></span>
 <span id="cb4-14"><a href=""></a><span class="co"># Vis tabellen pent</span></span>
-<span id="cb4-15"><a href=""></a><span class="fu">kable</span>(</span>
-<span id="cb4-16"><a href=""></a>  beskrivende_tabell,</span>
-<span id="cb4-17"><a href=""></a>  <span class="at">caption =</span> <span class="st">"Beskrivende statistikk inkludert median inntekt per kjønn"</span></span>
-<span id="cb4-18"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-15"><a href=""></a></span>
+<span id="cb4-16"><a href=""></a><span class="fu">kable</span>(</span>
+<span id="cb4-17"><a href=""></a>  beskrivende_tabell,</span>
+<span id="cb4-18"><a href=""></a>  <span class="at">caption =</span> <span class="st">"Beskrivende statistikk inkludert median inntekt per kjonn"</span></span>
+<span id="cb4-19"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top">
-<caption>Beskrivende statistikk inkludert median inntekt per kjønn</caption>
+<caption>Beskrivende statistikk inkludert median inntekt per kjonn</caption>
 <colgroup>
-<col style="width: 4%">
-<col style="width: 9%">
+<col style="width: 3%">
+<col style="width: 12%">
+<col style="width: 13%">
+<col style="width: 11%">
+<col style="width: 10%">
+<col style="width: 11%">
 <col style="width: 8%">
 <col style="width: 16%">
-<col style="width: 8%">
-<col style="width: 7%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 16%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: right;">n</th>
-<th style="text-align: right;">mean_income</th>
-<th style="text-align: right;">sd_income</th>
-<th style="text-align: right;">median_income_total</th>
-<th style="text-align: right;">mean_afqt</th>
-<th style="text-align: right;">sd_afqt</th>
-<th style="text-align: right;">median_afqt_total</th>
-<th style="text-align: right;">mean_income_menn</th>
-<th style="text-align: right;">mean_income_kvinner</th>
+<th style="text-align: right;">Gj.Snitt_Inntekt</th>
+<th style="text-align: right;">Std.Avvik_Inntekt</th>
+<th style="text-align: right;">Median_Inntekt</th>
+<th style="text-align: right;">Gj.Snitt_afqt</th>
+<th style="text-align: right;">Std.Avvik_afqt</th>
+<th style="text-align: right;">Median_afqt</th>
+<th style="text-align: right;">Gj.Snitt_Inntekt_Menn</th>
+<th style="text-align: right;">GJ.Snitt_Kvinner</th>
 </tr>
 </thead>
 <tbody>
@@ -534,7 +535,7 @@ Magnus og Harald
 <span id="cb14-8"><a href=""></a>    <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>),</span>
 <span id="cb14-9"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">pretty</span>(<span class="fu">range</span>(data<span class="sc">$</span>income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">n =</span> <span class="dv">6</span>)</span>
 <span id="cb14-10"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb14-11"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Inntekt fordelt på kjønn"</span>, <span class="at">x =</span> <span class="st">"Kjønn"</span>, <span class="at">y =</span> <span class="st">"Inntekt (NOK)"</span>) <span class="sc">+</span></span>
+<span id="cb14-11"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Inntekt fordelt pa kjonn"</span>, <span class="at">x =</span> <span class="st">"Kjonn"</span>, <span class="at">y =</span> <span class="st">"Inntekt (NOK)"</span>) <span class="sc">+</span></span>
 <span id="cb14-12"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>

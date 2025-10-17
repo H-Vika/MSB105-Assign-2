@@ -33,7 +33,6 @@ editor_options:
     wrap: 72
     canonical: true
     chunk_output_type: console
-echo: true
 eval: true
 nocite: '@*'
 bibliography: Assignment_2.bib
@@ -84,38 +83,49 @@ modelr::heights
 ## Beskrivende statistikk (tabell)
 
 ```{r}
-data |>
-summarise(
-n = n(),
-mean_income = mean(income),
-sd_income = sd(income),
-median_income = median(income),
-mean_afqt = mean(afqt),
-sd_afqt = sd(afqt),
-median_afqt = median(afqt)
-) |>
-knitr::kable()
-```
+library(dplyr)
+library(knitr)
+library(kableExtra)
 
-```{r}
+
 beskrivende_tabell <- data %>%
   summarise(
     n = n(),
-    mean_income = mean(income, na.rm = TRUE),
-    sd_income = sd(income, na.rm = TRUE),
-    median_income_total = median(income, na.rm = TRUE),
-    mean_afqt = mean(afqt, na.rm = TRUE),
-    sd_afqt = sd(afqt, na.rm = TRUE),
-    median_afqt_total = median(afqt, na.rm = TRUE),
-    mean_income_menn = mean(income[sex == "male"], na.rm = TRUE),
-    mean_income_kvinner = mean(income[sex == "female"], na.rm = TRUE)
+    Gj.Snitt_Inntekt = mean(income, na.rm = TRUE),
+    Std.Avvik_Inntekt = sd(income, na.rm = TRUE),
+    Median_Inntekt = median(income, na.rm = TRUE),
+    Gj.Snitt_afqt = mean(afqt, na.rm = TRUE),
+    Std.Avvik_afqt = sd(afqt, na.rm = TRUE),
+    Median_afqt = median(afqt, na.rm = TRUE),
+    Gj.Snitt_Inntekt_Menn = mean(income[sex == "male"], na.rm = TRUE),
+    GJ.Snitt_Inntekt_Kvinner = mean(income[sex == "female"], na.rm = TRUE)
   )
 
-# Vis tabellen pent
-kable(
-  beskrivende_tabell,
-  caption = "Beskrivende statistikk inkludert median inntekt per kjønn"
+```
+
+------------------------------------------------------------------------
+
+```{r}
+bt <- beskrivende_tabell %>%
+  rename(
+    `Antall` = n,
+    `Gj.snitt inntekt` = "Gj.Snitt_Inntekt",
+    `Std.avvik inntekt` = "Std.Avvik_Inntekt",
+    `Median inntekt` = "Median_Inntekt",
+    `Gj.snitt AFQT` = "Gj.Snitt_afqt",
+    `Std.avvik AFQT` = "Std.Avvik_afqt",
+    `Median AFQT` = "Median_afqt",
+    `Gj.snitt (menn)` = "Gj.Snitt_Inntekt_Menn",
+    `Gj.snitt (kvinner)` = "GJ.Snitt_Inntekt_Kvinner"   # ← oppdatert
+  ) %>%
+  mutate(across(where(is.numeric), ~ round(.x, 2)))
+
+kable(bt,
+      align = "c",
+      caption = "Beskrivende statistikk",
+      digits = 1
 )
+
 ```
 
 ------------------------------------------------------------------------
@@ -172,29 +182,40 @@ library(ggridges)
 
 ggplot(data = modelr::heights, aes(x = income, y = sex, fill = sex)) +
   geom_density_ridges(alpha = 0.7) +
-  labs(title = "Inntektsfordeling etter kjønn (tetthet)",
-       x = "Inntekt", y = "Kjønn")
+  labs(title = "Inntektsfordeling etter kjonn (tetthet)",
+       x = "Inntekt", y = "Kjonn")
 
 ggplot(data = modelr::heights, aes(x = income, fill = sex)) +
   geom_histogram(binwidth = 10000, alpha = 0.7, color = "white") +
   facet_wrap(~ sex) +
   labs(title = "Fordeling av inntekt for menn og kvinner",
        x = "Inntekt", y = "Antall")
+```
 
+---
+
+```{r}
 library(scales)  # for å formatere tall pent
 ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
   geom_violin(trim = FALSE, alpha = 0.7) +
   stat_summary(fun = "mean", geom = "point", shape = 23, size = 3, color = "black", fill = "white") +
-  labs(title = "Inntekt fordelt på kjønn (fordeling og gjennomsnitt)",
-       x = "Kjønn", y = "Inntekt") +
+  labs(title = "Inntekt fordelt pa kjonn (fordeling og gjennomsnitt)",
+       x = "Kjonn", y = "Inntekt") +
   theme_minimal() +
    scale_y_continuous(
     labels = label_number(big.mark = " ", decimal.mark = ","),
     breaks = pretty(range(data$income, na.rm = TRUE), n = 6)
    )
-
+bt %>%
+  select(`Gj.snitt (menn)`, `Gj.snitt (kvinner)`) %>%
+  kable(
+    digits = 0,
+    align = "c",
+    caption = "Gjennomsnitlig inntekt"
+  )
 ```
 
+---
 ```{r}
 data <- modelr::heights
 options(scipen = 999)  # slå av vitenskapelig notasjon
@@ -206,7 +227,7 @@ ggplot(data, aes(x = sex, y = income, fill = sex)) +
     labels = label_number(big.mark = " ", decimal.mark = ","),
     breaks = pretty(range(data$income, na.rm = TRUE), n = 6)
   ) +
-  labs(title = "Inntekt fordelt på kjønn", x = "Kjønn", y = "Inntekt (NOK)") +
+  labs(title = "Inntekt fordelt pa kjonn", x = "Kjonn", y = "Inntekt (NOK)") +
   theme_minimal()
 ```
 
