@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.32">
 
   <meta name="author" content="Magnus og Harald">
-  <title>Hvilke sammenhenger har vi mellom inntekt, kjønn og evnenivå («afqt») på arbeidsplassen?</title>
+  <title>Hvilke sammenhenger har vi mellom inntekt, kjønn og evnenivå («afqt»)?</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -148,7 +148,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Hvilke sammenhenger har vi mellom inntekt, kjønn og evnenivå («afqt») på arbeidsplassen?</h1>
+  <h1 class="title">Hvilke sammenhenger har vi mellom inntekt, kjønn og evnenivå («afqt»)?</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -161,40 +161,58 @@ Magnus og Harald
     </div>
 </div>
 
-  <p class="date">Friday 17 Oct, 2025</p>
-</section>
-<section class="slide level2">
-
-<p><span class="citation" data-cites="lin">(<a href="#/konklusjon" role="doc-biblioref" onclick=""><strong>lin?</strong></a>)</span> <span class="citation" data-cites="zotero-item-335">(<a href="#/konklusjon" role="doc-biblioref" onclick=""><strong>zotero-item-335?</strong></a>)</span></p>
+  <p class="date">Saturday 18 Oct, 2025</p>
 </section>
 <section id="introduksjon" class="slide level2" data-number="1">
 <h2><span class="header-section-number">1</span> Introduksjon</h2>
 <ul>
-<li>Kort om datasettet (<code>modelr::heights</code> eller Judge-datasettet)</li>
-<li>Variabler:
+<li>Kort om datasettet <code>modelr::heights</code></li>
+</ul>
 <ul>
-<li><code>income</code>: Inntekt</li>
-<li><code>gender</code>: Kjønn</li>
-<li><code>afqt</code>: Evnenivå (testscore)</li>
+<li class="fragment">Variabler:
+<ul>
+<li class="fragment"><code>income</code>: Inntekt</li>
+<li class="fragment"><code>gender</code>: Kjønn</li>
+<li class="fragment"><code>afqt</code>: Evnenivå (testscore)</li>
 </ul></li>
-<li>Formål: Undersøke sammenhenger mellom inntekt, kjønn og evnenivå</li>
+<li class="fragment">Formål: Undersøke sammenhenger mellom inntekt, kjønn og evnenivå</li>
 </ul>
 </section>
 <section id="litteraturgjennomgang" class="slide level2" data-number="2">
 <h2><span class="header-section-number">2</span> Litteraturgjennomgang</h2>
 <ul>
-<li><p>Hva er kjent fra tidligere studier?</p>
-<p>Vi vil ta utgangspunkt fra artikkeler og forskninger som tar for seg variablene inntekt, kjønn og evnenivå.</p></li>
-<li><p>Artikkelen “cognitive perfromance and labo market outcomes” <span class="citation" data-cites="lin">(<a href="#/konklusjon" role="doc-biblioref" onclick=""><strong>lin?</strong></a>)</span> tar for seg hvordan kognitiv prestasjoner henger sammen med arbeidsmarkedsutfall innen lønn, for personer i alderen 20-50 år. Artikkelen finner at det kognitiv presentasjon har en positiv sammenheng med alle aldre, det er en differensiert avkastning på kjønn, effekter på lønn og timer arbeidstid. Andre studier som “women benefit the most from taking higher education” <span class="citation" data-cites="WomenBenefitMost"><span>“Women Benefit the Most from Taking Higher Education”</span> (<a href="#/konklusjon" role="doc-biblioref" onclick="">n.d.</a>)</span> tar for seg utdanningsnivå mellom kvinner og menn, og hvem som tjener mest på å øke sine evner gjennom utdanning. Dette vil kunne gi oss et grunnlag for å forklarer samhengene mellom inntekt, kjønn og evne nivå gjennom modellen hight.</p></li>
-<li><p>Hvordan henger kognitive evner ofte sammen med inntekt?</p>
-<p>Den kognitive evnen virker gjennom utdanning, produktivitet og yrkesvalg, noe som gi en sterkere effekt over tid.</p>
-<p>Ifølge artikkelen til <span class="citation" data-cites="lin">(<a href="#/konklusjon" role="doc-biblioref" onclick=""><strong>lin?</strong></a>)</span> har det kommet frem at kognitiv evner har en positiv sammenheng opp gjennom alle aldre. Den tilsvarer positivt med et bedre arbeidsmarkedsutfall, der høyere evnenivå vil føre til høyre lønn og flere arbeidstimer, noe som så gir en større totalinntekt.</p></li>
-<li><p>Er det kjønnsforskjeller i inntekt og evnenivå?</p></li>
-<li><p>(Sett inn noen korte referanser med APA7-format her.)</p></li>
+<li><p>Hva er kjent fra tidligere studier?</p></li>
+<li><p>Vi vil ta utgangspunkt fra artikkeler og forskninger som tar for seg variablene inntekt, kjønn og evnenivå.</p></li>
+<li><p>Artikkelen “cognitive perfromance and labo market outcomes” <span class="citation" data-cites="lin">(<a href="#/konklusjon" role="doc-biblioref" onclick=""><strong>lin?</strong></a>)</span> tar for seg hvordan kognitiv prestasjoner henger sammen med arbeidsmarkedsutfall innen lønn, for personer i alderen 20-50 år.</p></li>
+<li><p>Andre studier som “women benefit the most from taking higher education” <span class="citation" data-cites="WomenBenefitMost"><span>“Women Benefit the Most from Taking Higher Education”</span> (<a href="#/konklusjon" role="doc-biblioref" onclick="">n.d.</a>)</span> tar for seg utdanningsnivå mellom kvinner og menn, og hvem som tjener mest på å øke sine evner gjennom utdanning. Dette vil kunne gi oss et grunnlag for å forklarer samhengene mellom inntekt, kjønn og evne nivå gjennom modellen hight.</p></li>
 </ul>
 </section>
-<section id="data-grunnlag-klargjøring" class="slide level2" data-number="3">
-<h2><span class="header-section-number">3</span> Data grunnlag &amp; klargjøring</h2>
+<section id="hvordan-henger-kognitive-evner-ofte-sammen-med-inntekt" class="slide level2" data-number="3">
+<h2><span class="header-section-number">3</span> Hvordan henger kognitive evner ofte sammen med inntekt?</h2>
+<ul>
+<li>Den kognitive evnen virker gjennom utdanning, produktivitet og yrkesvalg.</li>
+<li>Artikkelen “cognitive performance”</li>
+<li>Kognitiv evner har en positiv sammenheng opp gjennom alle aldre.</li>
+<li>Gir en større totalinntekt</li>
+<li>Samlet over tid vil det gi en større avkastning.</li>
+<li>Andre faktorer som påvirker inntekt</li>
+</ul>
+</section>
+<section id="er-det-kjønnsforskjeller-i-inntekt-og-evnenivå" class="slide level2" data-number="4">
+<h2><span class="header-section-number">4</span> Er det kjønnsforskjeller i inntekt og evnenivå?</h2>
+<ul>
+<li><p>Forskjeller mellom kjønn når de kommer til inntekt med lik evnenivå</p></li>
+<li><p>Kvinner har en større avkastning på inntekt ved høyere evnenivå enn menn</p></li>
+<li><p>Aboslutte innteksterminologien</p></li>
+<li><p>Forskjellen kommer frem når vi trekker inn antall arbeidstimer per år</p></li>
+<li><p>Artikkelen “woman benefit the most from taking higher education” kommer også frem at kvinner tjener mest på høyere utdanning enn menn</p></li>
+<li><p>Kvinnedominerte felt gi en lavere avkastning i inntekt enn i mannsdominerte felt</p></li>
+<li><p>Andre faktorer som kan påvirke kjønnsforskjeller i inntekt og evnenivå vil være forhandlinger og forskjellige kulturer.</p></li>
+<li><p>Studere modeller ut fra de tre variablene</p></li>
+</ul>
+</section>
+<section id="data-grunnlag-klargjøring" class="slide level2" data-number="5">
+<h2><span class="header-section-number">5</span> Data grunnlag &amp; klargjøring</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7,006 × 8
@@ -214,8 +232,8 @@ Magnus og Harald
 </div>
 </div>
 </section>
-<section id="beskrivende-statistikk-tabell" class="slide level2" data-number="4">
-<h2><span class="header-section-number">4</span> Beskrivende statistikk (tabell)</h2>
+<section id="beskrivende-statistikk-tabell" class="slide level2" data-number="6">
+<h2><span class="header-section-number">6</span> Beskrivende statistikk (tabell)</h2>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -254,8 +272,8 @@ Magnus og Harald
 </div>
 </div>
 </section>
-<section id="fordeling-av-variabler" class="slide level2" data-number="5">
-<h2><span class="header-section-number">5</span> Fordeling av variabler</h2>
+<section id="fordeling-av-variabler" class="slide level2" data-number="7">
+<h2><span class="header-section-number">7</span> Fordeling av variabler</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -273,8 +291,8 @@ Magnus og Harald
 </div>
 </div>
 </section>
-<section id="kjønnsforskjeller" class="slide level2" data-number="6">
-<h2><span class="header-section-number">6</span> Kjønnsforskjeller</h2>
+<section id="kjønnsforskjeller" class="slide level2" data-number="8">
+<h2><span class="header-section-number">8</span> Kjønnsforskjeller</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -294,12 +312,12 @@ Magnus og Harald
 </div>
 </div>
 </section>
-<section id="sammenhenger" class="slide level2" data-number="7">
-<h2><span class="header-section-number">7</span> Sammenhenger</h2>
+<section id="sammenhenger" class="slide level2" data-number="9">
+<h2><span class="header-section-number">9</span> Sammenhenger</h2>
 
 <img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-6-1.png" width="672" class="r-stretch"></section>
-<section id="korrelasjoner-eller-regresjonsmedell" class="slide level2" data-number="8">
-<h2><span class="header-section-number">8</span> Korrelasjoner eller regresjonsmedell</h2>
+<section id="korrelasjoner-eller-regresjonsmedell" class="slide level2" data-number="10">
+<h2><span class="header-section-number">10</span> Korrelasjoner eller regresjonsmedell</h2>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top">
@@ -371,21 +389,21 @@ Magnus og Harald
 </div>
 </div>
 <img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-7-1.png" width="672" class="r-stretch"></section>
-<section id="diskusjon" class="slide level2" data-number="9">
-<h2><span class="header-section-number">9</span> diskusjon</h2>
+<section id="diskusjon" class="slide level2" data-number="11">
+<h2><span class="header-section-number">11</span> diskusjon</h2>
 <ul>
 <li><p>Hva viser figurene om:</p></li>
 <li><p>Fordelingene (skjevhet, outliers)?</p></li>
 <li><p>Kjønnsforskjeller i nivå?</p></li>
 <li><p>Styrken/retningen på sammenhengen AFQT–inntekt?</p></li>
-<li><h2 id="stemmer-funn-med-litteraturen-mulige-mekanismer-begrensninger" data-number="10"><span class="header-section-number">10</span> Stemmer funn med litteraturen? Mulige mekanismer? Begrensninger?</h2></li>
+<li><h2 id="stemmer-funn-med-litteraturen-mulige-mekanismer-begrensninger" data-number="12"><span class="header-section-number">12</span> Stemmer funn med litteraturen? Mulige mekanismer? Begrensninger?</h2></li>
 </ul>
 </section>
-<section id="konklusjon" class="slide level2 smaller scrollable" data-number="11">
-<h2><span class="header-section-number">11</span> konklusjon</h2>
+<section id="konklusjon" class="slide level2 smaller scrollable" data-number="13">
+<h2><span class="header-section-number">13</span> konklusjon</h2>
 <ul>
 <li><p>Kort oppsummering av hovedfunn</p></li>
-<li><h2 id="impliserte-videre-steg-flere-kontrollvariabler-robusthetstester-modellvalg" data-number="12"><span class="header-section-number">12</span> Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)</h2></li>
+<li><h2 id="impliserte-videre-steg-flere-kontrollvariabler-robusthetstester-modellvalg" data-number="14"><span class="header-section-number">14</span> Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)</h2></li>
 </ul>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
