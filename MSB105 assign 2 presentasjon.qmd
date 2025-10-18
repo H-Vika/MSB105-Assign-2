@@ -1,5 +1,5 @@
 ---
-title: " Hvilke sammenhenger har vi mellom inntekt, kjønn og evnenivå («afqt») på arbeidsplassen?"
+title: " Hvilke sammenhenger har vi mellom inntekt, kjønn og evnenivå («afqt»)?"
 author: "Magnus og Harald"
 institute: "HVL"
 date: last-modified
@@ -32,7 +32,7 @@ editor_options:
     wrap: 72
     canonical: true
     chunk_output_type: console
-echo: true
+echo: false
 eval: true
 nocite: '@*'
 bibliography: Assignment_2.bib
@@ -42,7 +42,7 @@ bibliography: Assignment_2.bib
 
 ## Introduksjon
 
--   Kort om datasettet (`modelr::heights` eller Judge-datasettet)
+-   Kort om datasettet `modelr::heights`
 -   Variabler:
     -   `income`: Inntekt
     -   `gender`: Kjønn
@@ -61,29 +61,50 @@ bibliography: Assignment_2.bib
 -   Artikkelen "cognitive perfromance and labo market outcomes" @lin tar
     for seg hvordan kognitiv prestasjoner henger sammen med
     arbeidsmarkedsutfall innen lønn, for personer i alderen 20-50 år.
-    Artikkelen finner at det kognitiv presentasjon har en positiv
-    sammenheng med alle aldre, det er en differensiert avkastning på
-    kjønn, effekter på lønn og timer arbeidstid. Andre studier som
-    "women benefit the most from taking higher education"
-    @WomenBenefitMost tar for seg utdanningsnivå mellom kvinner og menn,
-    og hvem som tjener mest på å øke sine evner gjennom utdanning. Dette
-    vil kunne gi oss et grunnlag for å forklarer samhengene mellom
-    inntekt, kjønn og evne nivå gjennom modellen hight.
+
+-   Andre studier som "women benefit the most from taking higher
+    education" @WomenBenefitMost tar for seg utdanningsnivå mellom
+    kvinner og menn, og hvem som tjener mest på å øke sine evner gjennom
+    utdanning. Dette vil kunne gi oss et grunnlag for å forklarer
+    samhengene mellom inntekt, kjønn og evne nivå gjennom modellen
+    hight.
 
 -   Hvordan henger kognitive evner ofte sammen med inntekt?
 
     Den kognitive evnen virker gjennom utdanning, produktivitet og
-    yrkesvalg, noe som gi en sterkere effekt over tid.
-
-    Ifølge artikkelen til @lin har det kommet frem at kognitiv evner har
-    en positiv sammenheng opp gjennom alle aldre. Den tilsvarer positivt
+    yrkesvalg, noe som gi en sterkere effekt over tid. Artikkelen
+    "cognitive performance" finner at det kognitiv presentasjon har en
+    positiv sammenheng med alle aldre, det er en differensiert
+    avkastning på kjønn, effekter på lønn og timer arbeidstid. Ifølge
+    artikkelen til @lin har det kommet frem at kognitiv evner har en
+    positiv sammenheng opp gjennom alle aldre. Den tilsvarer positivt
     med et bedre arbeidsmarkedsutfall, der høyere evnenivå vil føre til
     høyre lønn og flere arbeidstimer, noe som så gir en større
-    totalinntekt.
+    totalinntekt. Samlet over tid vil det gi en større avkastning.
+    Samtidig er det også andre variasjoner som påvirker inntekt enn bare
+    evnenivået til en person, som sosiale faktorer, nettverk,
+    personlighet og flaks
 
 -   Er det kjønnsforskjeller i inntekt og evnenivå?
 
--   (Sett inn noen korte referanser med APA7-format her.)
+    Samtidig som timelønnen øker med evnenivå vil det fortsatt være
+    forskjeller mellom kjønn når de kommer til inntekt og lik evnenivå
+    blant de. Det kommer frem i artikkelen "cognetiv performance" at
+    kvinner har en større avkastning på inntekt ved høyere evnenivå enn
+    menn, men i den aboslutte innteksterminologien så kommer det frem at
+    menn tjener mer i gjennomsnitt enn kvinner. Forskjellen kommer frem
+    når vi trekker inn antall arbeidstimer per år mens timelønnen ved en
+    gitt evnenivå er mindre markant. Artikkelen "woman benefit the most
+    from taking higher education" kommer også frem at kvinner tjener
+    mest på høyere utdanning enn menn, men at kvinnedominerte felt gi en
+    lavere avkastning i innekt enn i mannsdominerte felt, noe som vil
+    være med på å påvirke kjønnsforskjeller i inntekten (legg inn
+    kilde). Andre faktorer som kan påvirke kjønnsforskjeller i inntekt
+    og evnenivå vil være forhandlinger og forskjellige kulturer.
+
+    Vi vil så se på modellene vi har fått ut ifra de tre variablene og
+    se om det er noe likheter mellom de og de utvalgte
+    forskningsartikklene.
 
 ------------------------------------------------------------------------
 
