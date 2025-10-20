@@ -145,7 +145,7 @@ bt <- data %>%
 
 kable(bt,
       align = "c",
-      caption = "Sammendragn av utvalgets nokkelstatistikk",
+      caption = "Sammendrag av utvalgets nokkelstatistikk",
       digits = 1
 )
 
