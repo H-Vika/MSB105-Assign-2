@@ -233,7 +233,7 @@ df <- data %>%
   mutate(sex = factor(sex, levels = c("male","female")))
 
 ggplot(df, aes(x = afqt, y = income, color = sex)) +
-  geom_point(alpha = 0.35, size = 1.2) +
+  geom_point(alpha = 0.8, size = 0.7) +
   geom_smooth(method = "lm", se = FALSE, fullrange = TRUE, size = 1.1) +
   scale_color_manual(
     values = c(male = "#1f77b4", female = "#d62728"),
@@ -251,6 +251,10 @@ ggplot(df, aes(x = afqt, y = income, color = sex)) +
     panel.grid.minor = element_blank(),
     legend.position = "right"
   )
+
+```
+
+```{r}
 
 ```
 
@@ -273,8 +277,6 @@ broom::tidy(mod1, conf.int = TRUE) |>
 knitr::kable(digits = 3)
 
 ```
-
-------------------------------------------------------------------------
 
 ## diskusjon
 
