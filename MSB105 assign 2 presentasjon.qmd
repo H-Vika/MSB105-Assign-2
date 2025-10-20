@@ -303,22 +303,14 @@ ggplot(df, aes(x = afqt, y = income)) +
 
 ## diskusjon
 
--   Hva viser figurene om:
+-   Sammenhengen mellom inntekt og evnenivå virket å ha en positiv
+    korrelasjon
 
--   Fordelingene (skjevhet, outliers)?
+-   Økt kognitiv evne fører til økt inntekt
 
--   Kjønnsforskjeller i nivå?
+-   Forskning sier økt avkastning for kvinner, men menn ligger over i
+    gjennomsnitt
 
--   Styrken/retningen på sammenhengen AFQT–inntekt?
+-   Andre faktorer i spill
 
--   
-
-    ## Stemmer funn med litteraturen? Mulige mekanismer? Begrensninger?
-
-## konklusjon
-
--   Kort oppsummering av hovedfunn
-
--   
-
-    ## Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)
+## Kilder
