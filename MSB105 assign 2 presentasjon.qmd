@@ -212,6 +212,8 @@ means_income <- data %>%
 # Plot
 ggplot(data, aes(x = income, fill = sex)) +
   geom_density(alpha = 0.5) +
+  scale_color_manual(values = c("male" = "#0055CC", "female" = "#CC0000")) +
+  scale_fill_manual(values = c("male" = "#0055CC", "female" = "#CC0000")) +
   geom_vline(
     data = means_income,
     aes(xintercept = mean_income, color = sex),
@@ -248,6 +250,8 @@ means <- data %>%
 
 ggplot(data, aes(x = afqt, fill = sex)) +
   geom_density(alpha = 0.5) +
+  scale_color_manual(values = c("male" = "#0055CC", "female" = "#CC0000")) +
+  scale_fill_manual(values = c("male" = "#0055CC", "female" = "#CC0000")) +
   geom_vline(
     data = means,
     aes(xintercept = mean_afqt, color = sex),
@@ -271,53 +275,29 @@ ggplot(data, aes(x = afqt, fill = sex)) +
 ## Sammenhenger
 
 ```{r}
-library(dplyr)
-library(ggplot2)
-library(scales)
-
 df <- data %>%
   filter(!is.na(afqt), !is.na(income), !is.na(sex)) %>%
   mutate(sex = factor(sex, levels = c("male","female")))
 
-ggplot(df, aes(x = afqt, y = income, color = sex)) +
-  geom_point(alpha = 0.8, size = 0.7) +
-  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE, size = 1.1) +
-  scale_color_manual(
-    values = c(male = "#1f77b4", female = "#d62728"),
-    name = "Kjonn"
+ggplot(df, aes(x = afqt, y = income)) +
+  geom_point(aes(color = sex), alpha = 0.4, size = 1.2) +
+  geom_smooth(
+    aes(group = sex),
+    method = "lm", se = FALSE,
+    size = 3, colour = "white"
   ) +
+  geom_smooth(
+    aes(color = sex),
+    method = "lm", se = FALSE,
+    size = 1.6
+  ) +
+  scale_color_manual(values = c(male = "#0055CC", female = "#CC0000"), name = "Kjonn") +
   scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 10)) +
   scale_y_continuous(labels = label_number(big.mark = " ", decimal.mark = ",")) +
-  labs(
-    title = "Sammenheng mellom AFQT, inntekt og kjonn",
-    x = "AFQT-score",
-    y = "Inntekt"
-  ) +
+  labs(title = "Sammenheng mellom AFQT, inntekt og kjonn",
+       x = "AFQT-score", y = "Inntekt") +
   theme_minimal(base_size = 12) +
-  theme(
-    panel.grid.minor = element_blank(),
-    legend.position = "right"
-  )
-
-```
-
-## Korrelasjoner eller regresjonsmedell
-
-```{r}
-# Enkel korrelasjon mellom income og afqt
-
-cor_tbl <- data |>
-summarise(kor_income_afqt = cor(income, afqt))
-knitr::kable(cor_tbl)
-
-# Parvis spredningsplott (kan være "tungt" på store datasett)
-
-pairs(~ income + afqt, data = data)
-
-# regresjon
-mod1 <- lm(income ~ afqt + sex, data = data)
-broom::tidy(mod1, conf.int = TRUE) |>
-knitr::kable(digits = 3)
+  theme(panel.grid.minor = element_blank(), legend.position = "right")
 
 ```
 
@@ -342,4 +322,3 @@ knitr::kable(digits = 3)
 -   
 
     ## Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)
-
