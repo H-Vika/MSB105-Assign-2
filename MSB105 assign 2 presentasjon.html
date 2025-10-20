@@ -161,15 +161,7 @@ Magnus og Harald
     </div>
 </div>
 
-<<<<<<< HEAD
-  <p class="date">Saturday 18 Oct, 2025</p>
-=======
-  <p class="date">Friday 17 Oct, 2025</p>
-</section>
-<section class="slide level2">
-
-<p><span class="citation" data-cites="lin">(<a href="#/konklusjon" role="doc-biblioref" onclick="">Lin, Lutter, and Ruhm, n.d.</a>)</span> <span class="citation" data-cites="zotero-item-335">(<a href="#/konklusjon" role="doc-biblioref" onclick=""><span>“Judge”</span> n.d.</a>)</span></p>
->>>>>>> Mags
+  <p class="date">Monday 20 Oct, 2025</p>
 </section>
 <section id="introduksjon" class="slide level2" data-number="1">
 <h2><span class="header-section-number">1</span> Introduksjon</h2>
@@ -190,16 +182,9 @@ Magnus og Harald
 <h2><span class="header-section-number">2</span> Litteraturgjennomgang</h2>
 <ul>
 <li><p>Hva er kjent fra tidligere studier?</p></li>
-<<<<<<< HEAD
 <li><p>Vi vil ta utgangspunkt fra artikkeler og forskninger som tar for seg variablene inntekt, kjønn og evnenivå.</p></li>
 <li><p>Artikkelen “cognitive perfromance and labo market outcomes” <span class="citation" data-cites="lin">(<a href="#/konklusjon" role="doc-biblioref" onclick=""><strong>lin?</strong></a>)</span> tar for seg hvordan kognitiv prestasjoner henger sammen med arbeidsmarkedsutfall innen lønn, for personer i alderen 20-50 år.</p></li>
-<li><p>Andre studier som “women benefit the most from taking higher education” <span class="citation" data-cites="WomenBenefitMost"><span>“Women Benefit the Most from Taking Higher Education”</span> (<a href="#/konklusjon" role="doc-biblioref" onclick="">n.d.</a>)</span> tar for seg utdanningsnivå mellom kvinner og menn, og hvem som tjener mest på å øke sine evner gjennom utdanning. Dette vil kunne gi oss et grunnlag for å forklarer samhengene mellom inntekt, kjønn og evne nivå gjennom modellen hight.</p></li>
-=======
-<li><p>Hvordan henger kognitive evner ofte sammen med inntekt?</p>
-<p>I følge artikkelen</p></li>
-<li><p>Er det kjønnsforskjeller i inntekt og evnenivå?</p></li>
-<li><p>(Sett inn noen korte referanser med APA7-format her.)</p></li>
->>>>>>> Mags
+<li><p>Andre studier som “women benefit the most from taking higher education” <span class="citation" data-cites="WomenBenefitMost"><span>“Women Benefit the Most from Taking Higher Education”</span> (<a href="#/konklusjon" role="doc-biblioref" onclick="">n.d.a</a>)</span> tar for seg utdanningsnivå mellom kvinner og menn, og hvem som tjener mest på å øke sine evner gjennom utdanning. Dette vil kunne gi oss et grunnlag for å forklarer samhengene mellom inntekt, kjønn og evne nivå gjennom modellen hight.</p></li>
 </ul>
 </section>
 <section id="hvordan-henger-kognitive-evner-ofte-sammen-med-inntekt" class="slide level2" data-number="3">
@@ -228,133 +213,57 @@ Magnus og Harald
 </section>
 <section id="data-grunnlag-klargjøring" class="slide level2" data-number="5">
 <h2><span class="header-section-number">5</span> Data grunnlag &amp; klargjøring</h2>
-<div class="cell">
-<<<<<<< HEAD
-=======
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href=""></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-3"><a href=""></a><span class="fu">library</span>(modelr)</span>
-<span id="cb1-4"><a href=""></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-5"><a href=""></a><span class="fu">library</span>(tinytex)</span>
-<span id="cb1-6"><a href=""></a>data <span class="ot">&lt;-</span> modelr<span class="sc">::</span>heights</span>
-<span id="cb1-7"><a href=""></a></span>
-<span id="cb1-8"><a href=""></a>modelr<span class="sc">::</span>heights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
->>>>>>> Mags
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 7,006 × 8
-   income height weight   age marital  sex    education  afqt
-    &lt;int&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;    &lt;fct&gt;      &lt;int&gt; &lt;dbl&gt;
- 1  19000     60    155    53 married  female        13  6.84
- 2  35000     70    156    51 married  female        10 49.4 
- 3 105000     65    195    52 married  male          16 99.4 
- 4  40000     63    197    54 married  female        14 44.0 
- 5  75000     66    190    49 married  male          14 59.7 
- 6 102000     68    200    49 divorced female        18 98.8 
- 7      0     74    225    48 married  male          16 82.3 
- 8  70000     64    160    54 divorced female        12 50.3 
- 9  60000     69    162    55 divorced male          12 89.7 
-10 150000     69    194    54 divorced male          13 96.0 
-# ℹ 6,996 more rows</code></pre>
-</div>
-</div>
+<ul>
+<li>Henter data ut fra modellen heights, som er datasett fra rstudio sin pakke modelr</li>
+</ul>
 </section>
 <section id="beskrivende-statistikk-tabell" class="slide level2" data-number="6">
 <h2><span class="header-section-number">6</span> Beskrivende statistikk (tabell)</h2>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top">
+<caption>Sammendrag av utvalgets nokkelstatistikk</caption>
 <colgroup>
+<col style="width: 4%">
+<col style="width: 9%">
+<col style="width: 10%">
+<col style="width: 8%">
 <col style="width: 7%">
-<col style="width: 16%">
-<col style="width: 14%">
-<col style="width: 19%">
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">n</th>
-<th style="text-align: right;">mean_income</th>
-<th style="text-align: right;">sd_income</th>
-<th style="text-align: right;">median_income</th>
-<th style="text-align: right;">mean_afqt</th>
-<th style="text-align: right;">sd_afqt</th>
-<th style="text-align: right;">median_afqt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">7006</td>
-<td style="text-align: right;">41203.94</td>
-<td style="text-align: right;">55892.12</td>
-<td style="text-align: right;">29589.5</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-<td style="text-align: right;">NA</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>beskrivende_tabell <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb4-3"><a href=""></a>    <span class="at">n =</span> <span class="fu">n</span>(),</span>
-<span id="cb4-4"><a href=""></a>    <span class="at">Gj.Snitt_Inntekt =</span> <span class="fu">mean</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-5"><a href=""></a>    <span class="at">Std.Avvik_Inntekt =</span> <span class="fu">sd</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-6"><a href=""></a>    <span class="at">Median_Inntekt =</span> <span class="fu">median</span>(income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-7"><a href=""></a>    <span class="at">Gj.Snitt_afqt =</span> <span class="fu">mean</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-8"><a href=""></a>    <span class="at">Std.Avvik_afqt =</span> <span class="fu">sd</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-9"><a href=""></a>    <span class="at">Median_afqt =</span> <span class="fu">median</span>(afqt, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-10"><a href=""></a>    <span class="at">Gj.Snitt_Inntekt_Menn =</span> <span class="fu">mean</span>(income[sex <span class="sc">==</span> <span class="st">"male"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb4-11"><a href=""></a>    <span class="at">GJ.Snitt_Kvinner =</span> <span class="fu">mean</span>(income[sex <span class="sc">==</span> <span class="st">"female"</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-12"><a href=""></a>  )</span>
-<span id="cb4-13"><a href=""></a></span>
-<span id="cb4-14"><a href=""></a><span class="co"># Vis tabellen pent</span></span>
-<span id="cb4-15"><a href=""></a></span>
-<span id="cb4-16"><a href=""></a><span class="fu">kable</span>(</span>
-<span id="cb4-17"><a href=""></a>  beskrivende_tabell,</span>
-<span id="cb4-18"><a href=""></a>  <span class="at">caption =</span> <span class="st">"Beskrivende statistikk inkludert median inntekt per kjonn"</span></span>
-<span id="cb4-19"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<table class="caption-top">
-<caption>Beskrivende statistikk inkludert median inntekt per kjonn</caption>
-<colgroup>
-<col style="width: 3%">
-<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 10%">
 <col style="width: 13%">
 <col style="width: 11%">
-<col style="width: 10%">
-<col style="width: 11%">
-<col style="width: 8%">
-<col style="width: 16%">
-<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;">n</th>
-<th style="text-align: right;">Gj.Snitt_Inntekt</th>
-<th style="text-align: right;">Std.Avvik_Inntekt</th>
-<th style="text-align: right;">Median_Inntekt</th>
-<th style="text-align: right;">Gj.Snitt_afqt</th>
-<th style="text-align: right;">Std.Avvik_afqt</th>
-<th style="text-align: right;">Median_afqt</th>
-<th style="text-align: right;">Gj.Snitt_Inntekt_Menn</th>
-<th style="text-align: right;">GJ.Snitt_Kvinner</th>
+<th style="text-align: center;">Antall</th>
+<th style="text-align: center;">Gj.snitt inntekt</th>
+<th style="text-align: center;">Std.avvik inntekt</th>
+<th style="text-align: center;">Median inntekt</th>
+<th style="text-align: center;">Gj.snitt AFQT</th>
+<th style="text-align: center;">Std.avvik AFQT</th>
+<th style="text-align: center;">Median AFQT</th>
+<th style="text-align: center;">Gj.snitt (menn)</th>
+<th style="text-align: center;">Gj.snitt (kvinner)</th>
+<th style="text-align: center;">Gj.snitt AFQT (kvinner)</th>
+<th style="text-align: center;">Gj.snitt AFQT (menn)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">7006</td>
-<td style="text-align: right;">41203.94</td>
-<td style="text-align: right;">55892.12</td>
-<td style="text-align: right;">29589.5</td>
-<td style="text-align: right;">41.21117</td>
-<td style="text-align: right;">29.03128</td>
-<td style="text-align: right;">36.757</td>
-<td style="text-align: right;">53510.06</td>
-<td style="text-align: right;">29587.56</td>
+<td style="text-align: center;">7006</td>
+<td style="text-align: center;">41203.9</td>
+<td style="text-align: center;">55892.1</td>
+<td style="text-align: center;">29589.5</td>
+<td style="text-align: center;">41.2</td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;">36.8</td>
+<td style="text-align: center;">53510.1</td>
+<td style="text-align: center;">29587.6</td>
+<td style="text-align: center;">40.6</td>
+<td style="text-align: center;">41.9</td>
 </tr>
 </tbody>
 </table>
@@ -363,196 +272,27 @@ Magnus og Harald
 </section>
 <section id="fordeling-av-variabler" class="slide level2" data-number="7">
 <h2><span class="header-section-number">7</span> Fordeling av variabler</h2>
-<div class="cell">
-<<<<<<< HEAD
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-3-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-=======
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> income)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href=""></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fu">diff</span>(<span class="fu">range</span>(data<span class="sc">$</span>income, <span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">/</span><span class="dv">30</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb5-3"><a href=""></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fordeling av inntekt"</span>,</span>
-<span id="cb5-4"><a href=""></a><span class="at">x =</span> <span class="st">"Inntekt"</span>,</span>
-<span id="cb5-5"><a href=""></a><span class="at">y =</span> <span class="st">"Antall"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
->>>>>>> Mags
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-4-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> afqt)) <span class="sc">+</span></span>
-<span id="cb6-2"><a href=""></a><span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fu">diff</span>(<span class="fu">range</span>(data<span class="sc">$</span>afqt, <span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">/</span><span class="dv">30</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb6-3"><a href=""></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fordeling av AFQT"</span>,</span>
-<span id="cb6-4"><a href=""></a><span class="at">x =</span> <span class="st">"AFQT-score"</span>,</span>
-<span id="cb6-5"><a href=""></a><span class="at">y =</span> <span class="st">"Antall"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-4-2.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="kjønnsforskjeller" class="slide level2" data-number="8">
-<h2><span class="header-section-number">8</span> Kjønnsforskjeller</h2>
-<div class="cell">
-<<<<<<< HEAD
-=======
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> modelr<span class="sc">::</span>heights, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> income, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb7-2"><a href=""></a><span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb7-3"><a href=""></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Inntekt fordelt på kjønn"</span>,</span>
-<span id="cb7-4"><a href=""></a><span class="at">x =</span> <span class="st">"Kjønn"</span>, <span class="at">y =</span> <span class="st">"Inntekt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
->>>>>>> Mags
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-5-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> modelr<span class="sc">::</span>heights, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> income, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb8-2"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
-<span id="cb8-3"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb8-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Inntektsfordeling etter kjønn"</span>,</span>
-<span id="cb8-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"Kjønn"</span>, <span class="at">y =</span> <span class="st">"Inntekt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-5-2.png" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> modelr<span class="sc">::</span>heights, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> income, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>, <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">fill =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Inntekt per individ etter kjønn"</span>,</span>
-<span id="cb9-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"Kjønn"</span>, <span class="at">y =</span> <span class="st">"Inntekt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-5-3.png" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> modelr<span class="sc">::</span>heights, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> income, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb10-2"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"bar"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">"errorbar"</span>, <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Gjennomsnittlig inntekt etter kjønn"</span>,</span>
-<span id="cb10-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"Kjønn"</span>, <span class="at">y =</span> <span class="st">"Gjennomsnittlig inntekt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-5-4.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<<<<<<< HEAD
-=======
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="fu">library</span>(ggridges)</span>
-<span id="cb11-2"><a href=""></a></span>
-<span id="cb11-3"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> modelr<span class="sc">::</span>heights, <span class="fu">aes</span>(<span class="at">x =</span> income, <span class="at">y =</span> sex, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb11-4"><a href=""></a>  <span class="fu">geom_density_ridges</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb11-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Inntektsfordeling etter kjønn (tetthet)"</span>,</span>
-<span id="cb11-6"><a href=""></a>       <span class="at">x =</span> <span class="st">"Inntekt"</span>, <span class="at">y =</span> <span class="st">"Kjønn"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
->>>>>>> Mags
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-6-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> modelr<span class="sc">::</span>heights, <span class="fu">aes</span>(<span class="at">x =</span> income, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10000</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> sex) <span class="sc">+</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Fordeling av inntekt for menn og kvinner"</span>,</span>
-<span id="cb12-5"><a href=""></a>       <span class="at">x =</span> <span class="st">"Inntekt"</span>, <span class="at">y =</span> <span class="st">"Antall"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-6-2.png" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="fu">library</span>(scales)  <span class="co"># for å formatere tall pent</span></span>
-<span id="cb13-2"><a href=""></a><span class="fu">ggplot</span>(<span class="at">data =</span> modelr<span class="sc">::</span>heights, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> income, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href=""></a>  <span class="fu">geom_violin</span>(<span class="at">trim =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
-<span id="cb13-4"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> <span class="st">"mean"</span>, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb13-5"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Inntekt fordelt på kjønn (fordeling og gjennomsnitt)"</span>,</span>
-<span id="cb13-6"><a href=""></a>       <span class="at">x =</span> <span class="st">"Kjønn"</span>, <span class="at">y =</span> <span class="st">"Inntekt"</span>) <span class="sc">+</span></span>
-<span id="cb13-7"><a href=""></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb13-8"><a href=""></a>   <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb13-9"><a href=""></a>    <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>),</span>
-<span id="cb13-10"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">pretty</span>(<span class="fu">range</span>(data<span class="sc">$</span>income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb13-11"><a href=""></a>   )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-6-3.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>data <span class="ot">&lt;-</span> modelr<span class="sc">::</span>heights</span>
-<span id="cb14-2"><a href=""></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>)  <span class="co"># slå av vitenskapelig notasjon</span></span>
-<span id="cb14-3"><a href=""></a></span>
-<span id="cb14-4"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> income, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb14-5"><a href=""></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb14-6"><a href=""></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"point"</span>, <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">fill =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb14-7"><a href=""></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb14-8"><a href=""></a>    <span class="at">labels =</span> <span class="fu">label_number</span>(<span class="at">big.mark =</span> <span class="st">" "</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>),</span>
-<span id="cb14-9"><a href=""></a>    <span class="at">breaks =</span> <span class="fu">pretty</span>(<span class="fu">range</span>(data<span class="sc">$</span>income, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">n =</span> <span class="dv">6</span>)</span>
-<span id="cb14-10"><a href=""></a>  ) <span class="sc">+</span></span>
-<span id="cb14-11"><a href=""></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Inntekt fordelt pa kjonn"</span>, <span class="at">x =</span> <span class="st">"Kjonn"</span>, <span class="at">y =</span> <span class="st">"Inntekt (NOK)"</span>) <span class="sc">+</span></span>
-<span id="cb14-12"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-7-1.png" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<<<<<<< HEAD
-<section id="sammenhenger" class="slide level2" data-number="9">
-<h2><span class="header-section-number">9</span> Sammenhenger</h2>
 
-<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-6-1.png" width="672" class="r-stretch"></section>
-<section id="korrelasjoner-eller-regresjonsmedell" class="slide level2" data-number="10">
-<h2><span class="header-section-number">10</span> Korrelasjoner eller regresjonsmedell</h2>
-<div class="cell">
-=======
-<section id="sammenhenger" class="slide level2" data-number="7">
-<h2><span class="header-section-number">7</span> Sammenhenger</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> afqt, <span class="at">y =</span> income, <span class="at">color =</span> sex)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href=""></a><span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb15-3"><a href=""></a><span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb15-4"><a href=""></a><span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sammenheng mellom AFQT og inntekt"</span>,</span>
-<span id="cb15-5"><a href=""></a><span class="at">x =</span> <span class="st">"AFQT-score"</span>, <span class="at">y =</span> <span class="st">"Inntekt"</span>, <span class="at">color =</span> <span class="st">"Kjonn"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-3-1.png" width="672" class="r-stretch"></section>
+<section id="section" class="slide level2" data-number="8">
+<h2><span class="header-section-number">8</span> </h2>
 
-</div>
-<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-8-1.png" width="672" class="r-stretch"></section>
-<section id="korrelasjoner-eller-regresjonsmedell" class="slide level2" data-number="8">
-<h2><span class="header-section-number">8</span> Korrelasjoner eller regresjonsmedell</h2>
+<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-4-1.png" width="672" class="r-stretch"></section>
+<section id="kjønnsforskjeller" class="slide level2" data-number="9">
+<h2><span class="header-section-number">9</span> Kjønnsforskjeller</h2>
+
+<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/Fordeling%20av%20kjonn%20og%20inntekt-1.png" width="672" class="r-stretch"></section>
+<section id="section-1" class="slide level2" data-number="10">
+<h2><span class="header-section-number">10</span> </h2>
+
+<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/Fordeling%20av%20AFQT-1.png" width="672" class="r-stretch"></section>
+<section id="sammenhenger" class="slide level2" data-number="11">
+<h2><span class="header-section-number">11</span> Sammenhenger</h2>
+
+<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-5-1.png" width="672" class="r-stretch"></section>
+<section id="korrelasjoner-eller-regresjonsmedell" class="slide level2" data-number="12">
+<h2><span class="header-section-number">12</span> Korrelasjoner eller regresjonsmedell</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># Enkel korrelasjon mellom income og afqt</span></span>
-<span id="cb16-2"><a href=""></a></span>
-<span id="cb16-3"><a href=""></a>cor_tbl <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
-<span id="cb16-4"><a href=""></a><span class="fu">summarise</span>(<span class="at">kor_income_afqt =</span> <span class="fu">cor</span>(income, afqt))</span>
-<span id="cb16-5"><a href=""></a>knitr<span class="sc">::</span><span class="fu">kable</span>(cor_tbl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
->>>>>>> Mags
 <div class="cell-output-display">
 <table class="caption-top">
 <thead>
@@ -567,18 +307,7 @@ Magnus og Harald
 </tbody>
 </table>
 </div>
-<<<<<<< HEAD
 
-=======
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a><span class="co"># Parvis spredningsplott (kan være "tungt" på store datasett)</span></span>
-<span id="cb17-2"><a href=""></a></span>
-<span id="cb17-3"><a href=""></a><span class="fu">pairs</span>(<span class="sc">~</span> income <span class="sc">+</span> afqt, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="co"># regresjon</span></span>
-<span id="cb18-2"><a href=""></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(income <span class="sc">~</span> afqt <span class="sc">+</span> sex, <span class="at">data =</span> data)</span>
-<span id="cb18-3"><a href=""></a>broom<span class="sc">::</span><span class="fu">tidy</span>(mod1, <span class="at">conf.int =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
-<span id="cb18-4"><a href=""></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
->>>>>>> Mags
 <div class="cell-output-display">
 <table class="caption-top" style="width:100%;">
 <colgroup>
@@ -633,32 +362,25 @@ Magnus og Harald
 </table>
 </div>
 </div>
-<<<<<<< HEAD
-<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-7-1.png" width="672" class="r-stretch"></section>
-<section id="diskusjon" class="slide level2" data-number="11">
-<h2><span class="header-section-number">11</span> diskusjon</h2>
-=======
-<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-9-1.png" width="672" class="r-stretch"></section>
-<section id="diskusjon" class="slide level2" data-number="9">
-<h2><span class="header-section-number">9</span> diskusjon</h2>
->>>>>>> Mags
+<img data-src="MSB105-assign-2-presentasjon_files/figure-revealjs/unnamed-chunk-6-1.png" width="672" class="r-stretch"></section>
+<section id="diskusjon" class="slide level2" data-number="13">
+<h2><span class="header-section-number">13</span> diskusjon</h2>
 <ul>
 <li><p>Hva viser figurene om:</p></li>
 <li><p>Fordelingene (skjevhet, outliers)?</p></li>
 <li><p>Kjønnsforskjeller i nivå?</p></li>
 <li><p>Styrken/retningen på sammenhengen AFQT–inntekt?</p></li>
-<li><h2 id="stemmer-funn-med-litteraturen-mulige-mekanismer-begrensninger" data-number="12"><span class="header-section-number">12</span> Stemmer funn med litteraturen? Mulige mekanismer? Begrensninger?</h2></li>
+<li><h2 id="stemmer-funn-med-litteraturen-mulige-mekanismer-begrensninger" data-number="14"><span class="header-section-number">14</span> Stemmer funn med litteraturen? Mulige mekanismer? Begrensninger?</h2></li>
 </ul>
 </section>
-<section id="konklusjon" class="slide level2 smaller scrollable" data-number="13">
-<h2><span class="header-section-number">13</span> konklusjon</h2>
+<section id="konklusjon" class="slide level2 smaller scrollable" data-number="15">
+<h2><span class="header-section-number">15</span> konklusjon</h2>
 <ul>
 <li><p>Kort oppsummering av hovedfunn</p></li>
-<li><h2 id="impliserte-videre-steg-flere-kontrollvariabler-robusthetstester-modellvalg" data-number="14"><span class="header-section-number">14</span> Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)</h2></li>
+<li><h2 id="impliserte-videre-steg-flere-kontrollvariabler-robusthetstester-modellvalg" data-number="16"><span class="header-section-number">16</span> Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)</h2></li>
 </ul>
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<<<<<<< HEAD
 <div id="ref-Judge" class="csl-entry" role="listitem">
 <span>“Judge.”</span> n.d. <em>ResearchGate</em>. https://www.researchgate.net/publication/8545837_The_Effect_of_Physical_Height_on_Workplace_Success_and_Income_Preliminary_Test_of_a_Theoretical_Model. Accessed October 13, 2025.
 </div>
@@ -666,23 +388,17 @@ Magnus og Harald
 Lin, Dajun, Randall Lutter, and Christopher J Ruhm. n.d. <span>“Cognitive <span>Performance</span> and <span>Labor Market Outcomes</span>.”</span>
 </div>
 <div id="ref-WomenBenefitMost" class="csl-entry" role="listitem">
-=======
-<div id="ref-zotero-item-335" class="csl-entry" role="listitem">
-<span>“Judge.”</span> n.d. <em>ResearchGate</em>. https://www.researchgate.net/publication/8545837_The_Effect_of_Physical_Height_on_Workplace_Success_and_Income_Preliminary_Test_of_a_Theoretical_Model. Accessed October 13, 2025.
-</div>
-<div id="ref-lin" class="csl-entry" role="listitem">
-Lin, Dajun, Randall Lutter, and Christopher J Ruhm. n.d. <span>“Cognitive <span>Performance</span> and <span>Labor Market Outcomes</span>.”</span>
+<span>“Women Benefit the Most from Taking Higher Education.”</span> n.d.a. https://kifinfo.no/en/2025/04/women-benefit-most-taking-higher-education. Accessed October 16, 2025.
 </div>
 <div id="ref-zotero-item-339" class="csl-entry" role="listitem">
->>>>>>> Mags
-<span>“Women Benefit the Most from Taking Higher Education.”</span> n.d. https://kifinfo.no/en/2025/04/women-benefit-most-taking-higher-education. Accessed October 16, 2025.
+———. n.d.b. https://kifinfo.no/en/2025/04/women-benefit-most-taking-higher-education. Accessed October 16, 2025.
 </div>
 </div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>Presentasjon «Assignment 2» msb105</p>
+<p>Presentasjon Assignment 2 msb105</p>
 </div>
 </div></div>
 

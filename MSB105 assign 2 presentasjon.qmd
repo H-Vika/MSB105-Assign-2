@@ -108,6 +108,9 @@ bibliography: Assignment_2.bib
 
 ## Data grunnlag & klargjøring
 
+-   Henter data ut fra modellen heights, som er datasett fra rstudio sin
+    pakke modelr
+
 ```{r}
 library(dplyr)
 library(ggplot2)
@@ -173,6 +176,8 @@ y = "Antall") +
   )
 ```
 
+## 
+
 ```{r}
 ggplot(data, aes(x = afqt)) +
 geom_histogram(
@@ -231,6 +236,8 @@ ggplot(data, aes(x = income, fill = sex)) +
   )
 
 ```
+
+## 
 
 ```{r}
 #| label: Fordeling av AFQT
@@ -294,10 +301,6 @@ ggplot(df, aes(x = afqt, y = income, color = sex)) +
 
 ```
 
-```{r}
-
-```
-
 ## Korrelasjoner eller regresjonsmedell
 
 ```{r}
@@ -339,3 +342,4 @@ knitr::kable(digits = 3)
 -   
 
     ## Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)
+
