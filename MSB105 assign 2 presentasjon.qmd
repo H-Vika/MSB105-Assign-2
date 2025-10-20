@@ -102,7 +102,7 @@ bt <- data %>%
 
 kable(bt,
       align = "c",
-      caption = "Sammendrag av utvalgets nøkkelstatistikk",
+      caption = "Sammendrag av utvalgets nokkelstatistikk",
       digits = 1
 )
 
@@ -297,4 +297,3 @@ knitr::kable(digits = 3)
 -   
 
     ## Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)
-
