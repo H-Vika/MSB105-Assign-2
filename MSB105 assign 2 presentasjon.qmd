@@ -5,6 +5,7 @@ institute: "HVL"
 date: last-modified
 date-format: "dddd D MMM, YYYY"
 lang: NO_nb
+encoding: UTF-8
 # lang: NO_nn
 citeproc: true
 number-sections: true
@@ -18,7 +19,7 @@ format:
     smaller: true
     scrollable: true
     preview-links: auto
-    footer: "Presentasjon «Assignment 2» msb105"
+    footer: "Presentasjon Assignment 2 msb105"
     fig-width: 7
   pptx: default
   html: default
@@ -112,86 +113,190 @@ library(dplyr)
 library(ggplot2)
 library(modelr)
 library(knitr)
-
+library(tinytex)
+library(scales)
 data <- modelr::heights
-
-modelr::heights
 ```
-
-------------------------------------------------------------------------
 
 ## Beskrivende statistikk (tabell)
 
 ```{r}
-data |>
-summarise(
-n = n(),
-mean_income = mean(income),
-sd_income = sd(income),
-median_income = median(income),
-mean_afqt = mean(afqt),
-sd_afqt = sd(afqt),
-median_afqt = median(afqt)
-) |>
-knitr::kable()
-```
+library(dplyr)
+library(knitr)
+library(kableExtra)
 
-------------------------------------------------------------------------
+bt <- data %>%
+  summarise(
+    `Antall` = n(),
+    `Gj.snitt inntekt` = mean(income, na.rm = TRUE),
+    `Std.avvik inntekt` = sd(income, na.rm = TRUE),
+    `Median inntekt` = median(income, na.rm = TRUE),
+    `Gj.snitt AFQT` = mean(afqt, na.rm = TRUE),
+    `Std.avvik AFQT` = sd(afqt, na.rm = TRUE),
+    `Median AFQT` = median(afqt, na.rm = TRUE),
+    `Gj.snitt (menn)` = mean(income[sex == "male"], na.rm = TRUE),
+    `Gj.snitt (kvinner)` = mean(income[sex == "female"], na.rm = TRUE),
+    `Gj.snitt AFQT (kvinner)` = mean(afqt[sex == "female"], na.rm = TRUE),
+    `Gj.snitt AFQT (menn)` = mean(afqt[sex == "male"], na.rm = TRUE)
+  )
+
+kable(bt,
+      align = "c",
+      caption = "Sammendrag av utvalgets nokkelstatistikk",
+      digits = 1
+)
+
+```
 
 ## Fordeling av variabler
 
 ```{r}
 ggplot(data, aes(x = income)) +
-geom_histogram(binwidth = diff(range(data$income, na.rm=TRUE))/30, color = "white") +
-labs(title = "Fordeling av inntekt",
+geom_histogram(
+  binwidth = 10000,
+  fill = "#4B9CD3",
+  color = "white",
+  alpha = 0.8
+) +
+  labs(title = "Fordeling av inntekt",
 x = "Inntekt",
-y = "Antall")
+y = "Antall") +
+  scale_x_continuous(
+    labels = label_number(big.mark = " ", decimal.mark = ","),
+    breaks = pretty(range(data$income, na.rm = TRUE), n = 6)
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
+```
 
+```{r}
 ggplot(data, aes(x = afqt)) +
-geom_histogram(binwidth = diff(range(data$afqt, na.rm=TRUE))/30, color = "white") +
-labs(title = "Fordeling av AFQT",
-x = "AFQT-score",
-y = "Antall")
+geom_histogram(
+  binwidth = 1,
+  fill = "#4B9CD3",
+  color = "white",
+  alpha = 0.8
+  ) +
+    labs(title = "Fordeling av AFQT",
+    x = "AFQT-score",
+    y = "Antall"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold"),
+    axis.title = element_text(face = "bold"),
+    panel.grid.minor = element_blank()
+  )
 
 
 ```
-
-------------------------------------------------------------------------
 
 ## Kjønnsforskjeller
 
 ```{r}
-ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
-geom_boxplot(alpha = 0.8, show.legend = FALSE) +
-labs(title = "Inntekt fordelt pa kjonn",
-x = "Kjonn", y = "Inntekt")
+#| label: Fordeling av kjonn og inntekt
+
+means_income <- data %>%
+  group_by(sex) %>%
+  summarise(mean_income = mean(income, na.rm = TRUE))
+
+# Plot
+ggplot(data, aes(x = income, fill = sex)) +
+  geom_density(alpha = 0.5) +
+  geom_vline(
+    data = means_income,
+    aes(xintercept = mean_income, color = sex),
+    linetype = "dashed",
+    size = 1
+  ) +
+  labs(
+    title = "Fordeling av inntekt etter kjonn",
+    x = "Inntekt",
+    y = "Tetthet",
+    fill = "Kjonn",
+    color = "Gjennomsnitt"
+  ) +
+  theme_minimal() +
+  scale_x_continuous(
+    labels = label_number(big.mark = " "),
+    breaks = seq(0, max(data$income, na.rm = TRUE), by = 50000)
+  ) +
+  theme_minimal(base_size = 10) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold")
+  )
 
 ```
 
 ```{r}
-ggplot(data, aes(x = sex, y = afqt, fill = sex)) +
-geom_violin(alpha = 0.6, trim = FALSE, show.legend = FALSE) +
-geom_boxplot(width = .15, outlier.shape = NA, alpha = 0.8, show.legend = FALSE) +
-labs(title = "AFQT fordelt pa kjonn",
-x = "Kjonn", y = "AFQT-score")
+#| label: Fordeling av AFQT
+
+means <- data %>%
+  group_by(sex) %>%
+  summarise(mean_afqt = mean(afqt, na.rm = TRUE))
+
+ggplot(data, aes(x = afqt, fill = sex)) +
+  geom_density(alpha = 0.5) +
+  geom_vline(
+    data = means,
+    aes(xintercept = mean_afqt, color = sex),
+    linetype = "dashed",
+    size = 1
+  ) +
+  labs(
+    title = "Fordeling av AFQT-score etter kjonn",
+    x = "AFQT score",
+    y = "Tetthet",
+    fill = "Kjonn",
+    color = "Gj.snitt"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold")
+  )
 
 ```
-
-------------------------------------------------------------------------
 
 ## Sammenhenger
 
 ```{r}
-echo = FALSE
-ggplot(data, aes(x = afqt, y = income, color = sex)) +
-geom_point(alpha = 0.4) +
-geom_smooth(method = "lm", se = FALSE) +
-labs(title = "Sammenheng mellom AFQT og inntekt",
-x = "AFQT-score", y = "Inntekt", color = "Kjonn")
+library(dplyr)
+library(ggplot2)
+library(scales)
+
+df <- data %>%
+  filter(!is.na(afqt), !is.na(income), !is.na(sex)) %>%
+  mutate(sex = factor(sex, levels = c("male","female")))
+
+ggplot(df, aes(x = afqt, y = income, color = sex)) +
+  geom_point(alpha = 0.8, size = 0.7) +
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE, size = 1.1) +
+  scale_color_manual(
+    values = c(male = "#1f77b4", female = "#d62728"),
+    name = "Kjonn"
+  ) +
+  scale_x_continuous(limits = c(0, 100), breaks = seq(0, 100, 10)) +
+  scale_y_continuous(labels = label_number(big.mark = " ", decimal.mark = ",")) +
+  labs(
+    title = "Sammenheng mellom AFQT, inntekt og kjonn",
+    x = "AFQT-score",
+    y = "Inntekt"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    legend.position = "right"
+  )
 
 ```
 
-------------------------------------------------------------------------
+```{r}
+
+```
 
 ## Korrelasjoner eller regresjonsmedell
 
@@ -212,8 +317,6 @@ broom::tidy(mod1, conf.int = TRUE) |>
 knitr::kable(digits = 3)
 
 ```
-
-------------------------------------------------------------------------
 
 ## diskusjon
 

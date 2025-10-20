@@ -1,0 +1,272 @@
+---
+title: " Hvilke sammenhenger har vi mellom inntekt, kjønn og evnenivå («afqt») på arbeidsplassen?"
+author: "Magnus og Harald"
+institute: "HVL"
+date: last-modified
+date-format: "dddd D MMM, YYYY"
+lang: NO_nb
+encoding: UTF-8
+# lang: NO_nn
+citeproc: true
+number-sections: true
+format:
+  revealjs: 
+    theme: simple
+    number-depth: 2
+    slide-number: c/t
+    toc: true
+    toc-depth: 1
+    smaller: true
+    scrollable: true
+    preview-links: auto
+    footer: "Presentasjon «Assignment 2» msb105"
+    fig-width: 7
+  pptx: default
+  html: default
+  typst:
+    papersize: a4
+  pdf:
+    papersize: a4
+editor: source
+editor_options:
+  markdown:
+    wrap: 72
+    canonical: true
+    chunk_output_type: console
+eval: true
+nocite: '@*'
+bibliography: Assignment_2.bib
+---
+
+[@lin] [@zotero-item-335]
+
+## Introduksjon
+
+-   Kort om datasettet (`modelr::heights` eller Judge-datasettet)
+-   Variabler:
+    -   `income`: Inntekt
+    -   `gender`: Kjønn
+    -   `afqt`: Evnenivå (testscore)
+-   Formål: Undersøke sammenhenger mellom inntekt, kjønn og evnenivå
+
+------------------------------------------------------------------------
+
+## Litteraturgjennomgang
+
+-   Hva er kjent fra tidligere studier?
+
+-   Hvordan henger kognitive evner ofte sammen med inntekt?
+
+    I følge artikkelen
+
+-   Er det kjønnsforskjeller i inntekt og evnenivå?
+
+-   (Sett inn noen korte referanser med APA7-format her.)
+
+------------------------------------------------------------------------
+
+## Data grunnlag & klargjøring
+
+```{r, echo=FALSE}
+library(dplyr)
+library(ggplot2)
+library(modelr)
+library(knitr)
+library(tinytex)
+data <- modelr::heights
+
+modelr::heights
+```
+
+------------------------------------------------------------------------
+
+## Beskrivende statistikk (tabell)
+
+```{r, echo=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+bt <- data %>%
+  summarise(
+    `Antall` = n(),
+    `Gj.snitt inntekt` = mean(income, na.rm = TRUE),
+    `Std.avvik inntekt` = sd(income, na.rm = TRUE),
+    `Median inntekt` = median(income, na.rm = TRUE),
+    `Gj.snitt AFQT` = mean(afqt, na.rm = TRUE),
+    `Std.avvik AFQT` = sd(afqt, na.rm = TRUE),
+    `Median AFQT` = median(afqt, na.rm = TRUE),
+    `Gj.snitt (menn)` = mean(income[sex == "male"], na.rm = TRUE),
+    `Gj.snitt (kvinner)` = mean(income[sex == "female"], na.rm = TRUE)
+  )
+
+kable(bt,
+      align = "c",
+      caption = "Sammendrag av utvalgets nøkkelstatistikk",
+      digits = 1
+)
+
+```
+
+------------------------------------------------------------------------
+
+## Fordeling av variabler
+
+```{r}
+ggplot(data, aes(x = income)) +
+geom_histogram(binwidth = diff(range(data$income, na.rm=TRUE))/30, color = "white") +
+labs(title = "Fordeling av inntekt",
+x = "Inntekt",
+y = "Antall")
+
+ggplot(data, aes(x = afqt)) +
+geom_histogram(binwidth = diff(range(data$afqt, na.rm=TRUE))/30, color = "white") +
+labs(title = "Fordeling av AFQT",
+x = "AFQT-score",
+y = "Antall")
+
+
+```
+
+------------------------------------------------------------------------
+
+## Kjønnsforskjeller
+
+```{r}
+ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
+geom_boxplot(alpha = 0.8, show.legend = FALSE) +
+labs(title = "Inntekt fordelt på kjønn",
+x = "Kjønn", y = "Inntekt")
+
+ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
+  geom_violin(trim = FALSE, alpha = 0.6) +
+  geom_boxplot(width = 0.1, outlier.shape = NA, alpha = 0.8) +
+  labs(title = "Inntektsfordeling etter kjønn",
+       x = "Kjønn", y = "Inntekt")
+
+ggplot(data = modelr::heights, aes(x = sex, y = income, color = sex)) +
+  geom_jitter(alpha = 0.4, width = 0.2) +
+  stat_summary(fun = mean, geom = "point", shape = 23, size = 4, fill = "black") +
+  labs(title = "Inntekt per individ etter kjønn",
+       x = "Kjønn", y = "Inntekt")
+
+ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
+  stat_summary(fun = mean, geom = "bar", alpha = 0.7) +
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2) +
+  labs(title = "Gjennomsnittlig inntekt etter kjønn",
+       x = "Kjønn", y = "Gjennomsnittlig inntekt")
+```
+
+```{r}
+library(ggridges)
+
+ggplot(data = modelr::heights, aes(x = income, y = sex, fill = sex)) +
+  geom_density_ridges(alpha = 0.7) +
+  labs(title = "Inntektsfordeling etter kjonn (tetthet)",
+       x = "Inntekt", y = "Kjonn")
+
+ggplot(data = modelr::heights, aes(x = income, fill = sex)) +
+  geom_histogram(binwidth = 10000, alpha = 0.7, color = "white") +
+  facet_wrap(~ sex) +
+  labs(title = "Fordeling av inntekt for menn og kvinner",
+       x = "Inntekt", y = "Antall")
+```
+
+---
+
+```{r}
+library(scales)  # for å formatere tall pent
+ggplot(data = modelr::heights, aes(x = sex, y = income, fill = sex)) +
+  geom_violin(trim = FALSE, alpha = 0.7) +
+  stat_summary(fun = "mean", geom = "point", shape = 23, size = 3, color = "black", fill = "white") +
+  labs(title = "Inntekt fordelt pa kjonn (fordeling og gjennomsnitt)",
+       x = "Kjonn", y = "Inntekt") +
+  theme_minimal() +
+   scale_y_continuous(
+    labels = label_number(big.mark = " ", decimal.mark = ","),
+    breaks = pretty(range(data$income, na.rm = TRUE), n = 6)
+   )
+bt %>%
+  select(`Gj.snitt (menn)`, `Gj.snitt (kvinner)`) %>%
+  kable(
+    digits = 0,
+    align = "c",
+    caption = "Gjennomsnitlig inntekt"
+  )
+```
+
+---
+```{r}
+data <- modelr::heights
+options(scipen = 999)  # slå av vitenskapelig notasjon
+
+ggplot(data, aes(x = sex, y = income, fill = sex)) +
+  geom_boxplot(alpha = 0.8, show.legend = FALSE) +
+  stat_summary(fun = mean, geom = "point", shape = 23, size = 3, fill = "white") +
+  scale_y_continuous(
+    labels = label_number(big.mark = " ", decimal.mark = ","),
+    breaks = pretty(range(data$income, na.rm = TRUE), n = 6)
+  ) +
+  labs(title = "Inntekt fordelt pa kjonn", x = "Kjonn", y = "Inntekt (NOK)") +
+  theme_minimal()
+```
+
+------------------------------------------------------------------------
+
+## Sammenhenger
+
+```{r}
+ggplot(data, aes(x = afqt, y = income, color = sex)) +
+geom_point(alpha = 0.4) +
+geom_smooth(method = "lm", se = FALSE) +
+labs(title = "Sammenheng mellom AFQT og inntekt",
+x = "AFQT-score", y = "Inntekt", color = "Kjonn")
+
+```
+
+------------------------------------------------------------------------
+
+## Korrelasjoner eller regresjonsmedell
+
+```{r}
+# Enkel korrelasjon mellom income og afqt
+
+cor_tbl <- data |>
+summarise(kor_income_afqt = cor(income, afqt))
+knitr::kable(cor_tbl)
+
+# Parvis spredningsplott (kan være "tungt" på store datasett)
+
+pairs(~ income + afqt, data = data)
+
+# regresjon
+mod1 <- lm(income ~ afqt + sex, data = data)
+broom::tidy(mod1, conf.int = TRUE) |>
+knitr::kable(digits = 3)
+
+```
+
+------------------------------------------------------------------------
+
+## diskusjon
+
+-   Hva viser figurene om:
+
+-   Fordelingene (skjevhet, outliers)?
+
+-   Kjønnsforskjeller i nivå?
+
+-   Styrken/retningen på sammenhengen AFQT–inntekt?
+
+-   
+
+    ## Stemmer funn med litteraturen? Mulige mekanismer? Begrensninger?
+
+## konklusjon
+
+-   Kort oppsummering av hovedfunn
+
+-   
+
+    ## Impliserte videre steg (flere kontrollvariabler, robusthetstester, modellvalg)
+
