@@ -11,7 +11,7 @@ citeproc: true
 number-sections: true
 format:
   revealjs: 
-    theme: simple
+    theme: moon
     number-depth: 2
     slide-number: c/t
     toc: true
